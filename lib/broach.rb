@@ -1,5 +1,5 @@
 require 'rest'
-require 'json'
+require 'multi_json'
 
 require 'broach/exceptions'
 
@@ -36,40 +36,40 @@ module Broach
   autoload :Session,    'broach/session'
   autoload :User,       'broach/user'
   autoload :Room,       'broach/room'
-  
+
   # Returns the current Broach settings
   def self.settings
     @settings
   end
-  
+
   # Sets the broach settings
   def self.settings=(settings)
     @settings = settings
     @session  = nil
   end
-  
+
   # Returns a session object with the current settings
   def self.session
     @session ||= Broach::Session.new(settings)
   end
-  
+
   # Returns a User instance for the currently authenticated user
   def self.me
     Broach::User.me
   end
-  
+
   # Returns a Room instance for all rooms accesible to the currently authenticated user
   def self.rooms
     Broach::Room.all
   end
-  
+
   # Send a message to a room with a certain name.
   #
   # Note that you should only use this method if you're sending just one message. It fetches
   # all rooms before sending the message to find the room with the name you're specifying.
   #
   # If you need to send multiple messages to the same room you should instantiate a room first.
-  # 
+  #
   # ==== Options
   #
   # +room+
