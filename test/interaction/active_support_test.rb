@@ -4,7 +4,7 @@ require 'open3'
 require 'rbconfig'
 module InteractionSpecHelpers
   def ruby(script)
-    ruby_bin = File.join(Config::CONFIG['bindir'], Config::CONFIG['ruby_install_name'])
+    ruby_bin = File.join(RbConfig::CONFIG['bindir'], RbConfig::CONFIG['ruby_install_name'])
     stdin, stdout, stderr = Open3.popen3("#{ruby_bin} #{script}")
     stderr.read
   end
