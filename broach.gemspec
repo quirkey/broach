@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   EOF
 
   spec.add_dependency('nap',  '~> 0.3')
-  spec.add_dependency('json', '~> 1.4')
+  spec.add_dependency('multi_json', '~> 1.3.6')
 
   spec.files = [
     'LICENSE',
